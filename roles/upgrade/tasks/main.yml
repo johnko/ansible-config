@@ -1,0 +1,24 @@
+- name: 'apt-get update && apt-get --yes dist-upgrade && apt-get --yes autoremove'
+  apt:
+    #autoclean: yes
+    autoremove: yes
+    cache_valid_time: 3600
+    update_cache: yes
+    upgrade: dist
+  register: upgrade
+  when: 'ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"'
+
+- debug: msg="{{ upgrade.stdout_lines }}"
+  when: 'ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"'
+- debug: msg="{{ upgrade.stderr_lines }}"
+  when: 'ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"'
+
+- name: 'apt-get autoclean'
+  command: 'apt-get autoclean'
+  register: autoclean
+  when: 'ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"'
+
+- debug: msg="{{ autoclean.stdout_lines }}"
+  when: 'ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"'
+- debug: msg="{{ autoclean.stderr_lines }}"
+  when: 'ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"'

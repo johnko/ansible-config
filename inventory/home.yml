@@ -1,0 +1,7 @@
+[home]
+alpha ansible_host=192.168.255.61
+bravo ansible_host=192.168.255.71
+
+[home:vars]
+#ansible_python_interpreter=/usr/bin/python3
+ansible_user=johnko

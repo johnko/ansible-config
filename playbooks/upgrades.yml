@@ -1,0 +1,4 @@
+- hosts: all
+  roles:
+    - { role: ../roles/upgrade }
+    - { role: ../roles/clean-package-cache }
