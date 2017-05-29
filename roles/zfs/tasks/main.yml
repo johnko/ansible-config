@@ -1,0 +1,10 @@
+- name: Add universe repository
+  apt_repository:
+    filename: /etc/apt/sources
+    repo: deb http://archive.ubuntu.com/ubuntu {{ ansible_lsb.codename }} main universe
+  when: ansible_os_family == "Debian"
+
+- name: Install zfs
+  apt:
+    name: zfs-initramfs
+  when: ansible_os_family == "Debian"
