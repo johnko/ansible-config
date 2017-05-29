@@ -1,0 +1,47 @@
+- name: Add repo - universe
+  apt_repository:
+    filename: /etc/apt/sources
+    repo: deb http://archive.ubuntu.com/ubuntu {{ ansible_lsb.codename }} main universe
+    update_cache: no
+  when: ansible_os_family == "Debian"
+
+- name: Add repo - updates
+  apt_repository:
+    filename: /etc/apt/sources
+    repo: deb http://archive.ubuntu.com/ubuntu {{ ansible_lsb.codename }}-updates main universe
+    update_cache: no
+  when: ansible_os_family == "Debian"
+
+- name: Add repo - security
+  apt_repository:
+    filename: /etc/apt/sources
+    repo: deb http://security.ubuntu.com/ubuntu {{ ansible_lsb.codename }}-security main universe
+    update_cache: no
+  when: ansible_os_family == "Debian"
+
+- name: Add repo - universe src
+  apt_repository:
+    filename: /etc/apt/sources
+    repo: deb-src http://archive.ubuntu.com/ubuntu {{ ansible_lsb.codename }} main universe
+    update_cache: no
+  when: ansible_os_family == "Debian"
+
+- name: Add repo - updates src
+  apt_repository:
+    filename: /etc/apt/sources
+    repo: deb-src http://archive.ubuntu.com/ubuntu {{ ansible_lsb.codename }}-updates main universe
+    update_cache: no
+  when: ansible_os_family == "Debian"
+
+- name: Add repo - security src
+  apt_repository:
+    filename: /etc/apt/sources
+    repo: deb-src http://security.ubuntu.com/ubuntu {{ ansible_lsb.codename }}-security main universe
+  when: ansible_os_family == "Debian"
+
+- name: File permission - /etc/apt/sources.list
+  file:
+    group: root
+    mode: 0644
+    owner: root
+    path: /etc/apt/sources.list

@@ -1,8 +1,4 @@
-- name: Add universe repository
-  apt_repository:
-    filename: /etc/apt/sources
-    repo: deb http://archive.ubuntu.com/ubuntu {{ ansible_lsb.codename }} main universe
-  when: ansible_os_family == "Debian"
+- include: ../apt-sources/tasks/main.yml
 
 - name: Install zfs
   apt:

@@ -2,4 +2,4 @@
   roles:
     - { role: ../roles/zfs }
     - { role: ../roles/common }
-    - { role: ../roles/desktop }
+    #- { role: ../roles/desktop }
