@@ -1,0 +1,4 @@
+- hosts: servers
+  roles:
+    - { role: ../roles/zfs }
+    - { role: ../roles/common }

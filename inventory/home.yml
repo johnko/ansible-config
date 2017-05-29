@@ -1,7 +1,18 @@
-[home]
+[desktops]
 alpha ansible_host=192.168.255.61
+
+[servers]
 bravo ansible_host=192.168.255.71
 
+[home:children]
+desktops
+servers
+
 [home:vars]
-#ansible_python_interpreter=/usr/bin/python3
 ansible_user=johnko
+
+[ungrouped:vars]
+#ansible_python_interpreter=/usr/bin/python3
+
+[all:vars]
+#ansible_python_interpreter=/usr/bin/python3

@@ -1,0 +1,5 @@
+- hosts: desktops
+  roles:
+    - { role: ../roles/zfs }
+    - { role: ../roles/common }
+    - { role: ../roles/desktop }
